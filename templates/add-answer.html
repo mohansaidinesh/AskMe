@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<h1>{{ header }}</h1>
+<form action="/question/{{ question_id }}/new-answer" method="POST">
+
+    Message:<br>
+    <textarea type="text" name="message" required></textarea><br>
+    Image:<br>
+    <input type="file" name="fileupload" value="fileupload" id="fileupload">
+    <label for="fileupload"> Select an image to upload</label><br><br>
+    <button type="submit">Submit your answer</button>
+</form>
+{% endblock %}

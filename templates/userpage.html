@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <title> Activity of {{ username }}:</title>
+        <style>
+            td {
+                border: 1px solid #999;
+                padding: 0.1em 1em;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>Activity of {{ username }}:</h1>
+    <body>
+    <h2>Questions:</h2>
+    <table width='100%'>
+        <thead>
+        <tr>
+            {% for title in questions_titles %}
+                <th>{{ title }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+            <tbody>
+                {% for question in questions %}
+                    <tr>
+                        {% for key, value in question.items() %}
+                            {% if key=="title" %}
+                        <td style="text-align:left"><a href="/question/{{question.id}}">{{ value }}</a></td>
+                            {% elif key=="id" or key=="submission_time" or key=="view_number" or key=="vote_number" %}
+                                <td style="text-align:center">{{ value }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+       <table width='100%'>
+       <h2>Answers:</h2>
+        <thead>
+        <tr>
+            {% for title in answers_titles %}
+                    <th>{{ title }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for answer in answers %}
+                    <tr>
+                        {% for key, value in answer.items() %}
+                            {% if key=="question_id" %}
+                        <td style="text-align:left"><a href="/question/{{answer.question_id}}">{{ value }}</a></td>
+                            {% elif key=="id" or key=="submission_time" or key=="view_number" or key=="vote_number" %}
+                                <td style="text-align:center">{{ value }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+    <h1>{{ header }}</h1>
+    <form action="{{ action }}" method="POST">
+        Title:<br>
+        <input type="text" name="title" minlength="5" value="{{ old_title }}" required><br>
+        Message:<br>
+        <textarea type="text" name="message" required>{{ old_message }}</textarea><br>
+        Image:<br>
+        <input type="file" name="fileupload" value="fileupload" id="fileupload">
+        <label for="fileupload"> Select an image to upload</label><br><br>
+        <button type="submit">Add question!</button>
+    </form>
+{% endblock %}

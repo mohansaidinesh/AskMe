@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask Mate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <style>
+
+    </style>
+    <div id="nav-bar">
+        <ul>
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="{{ url_for('show_list_of_questions') }}">Questions</a></li>
+            <li><a href="{{ url_for('ask_question') }}">Ask, Mate!</a></li>
+            {% if not username %}
+                <a class="login" href="/login">Login</a>
+            {% else %}
+                <a class="login" href="/user/{{ username }}">{{ username }}</a>
+            {% endif %}
+            </a>
+        </ul>
+
+    </div>
+</head>
+<body>
+<div class="content-wrapper">
+    {% block content %} {% endblock %}
+</div>
+
+
+</body>

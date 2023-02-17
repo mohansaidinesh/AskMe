@@ -1,0 +1,94 @@
+body {
+    background-color: #008e9d;
+    color: white;
+    font-size: 28px;
+}
+
+a {
+    display: block;
+    color: greenyellow;
+    text-align: left;
+    padding: 5px 5px;
+    text-decoration: none;
+}
+
+
+a:hover {
+    background-color: #86989B;
+}
+
+
+td {
+    border: 1px solid #999;
+    padding: 0.1em 1em;
+    width: 800px;
+    word-wrap: break-word;
+}
+
+.content-wrapper {
+    padding: 10%;
+}
+
+/* Navigation Styles Starts */
+
+
+#nav-bar {
+
+
+    background-color: #333;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+#nav-bar ul {
+    margin: -10px;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+#nav-bar li {
+    float: left;
+}
+
+#nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+#nav-bar li a:hover {
+    background-color: #111;
+}
+
+#nav-bar .active {
+    background-color: #4CAF50;
+
+}
+
+
+#nav-bar .login {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: right;
+}
+
+/* for flash message after login */
+
+.flashes {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 25px;
+    color: lawngreen;
+    background-color: #008e9d;
+}
+
+
+

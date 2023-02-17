@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <title>Questions list</title>
+        <style>
+            td {
+                border: 1px solid #999;
+                padding: 0.1em 1em;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>Questions list</h1>
+    <body>
+    <table width='100%'>
+        <thead>
+        <tr>
+            {% for title in titles %}
+                    <th>{{ title }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in list_of_questions %}
+                    <tr>
+                        {% for key, value in question.items() %}
+                            {% if key=="title" %}
+                        <td style="text-align:left"><a href="/question/{{question.id}}">{{ value }}</a></td>
+                            {% elif key=="id" or key=="submission_time" or key=="view_number" or key=="vote_number" %}
+                                <td style="text-align:center">{{ value }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

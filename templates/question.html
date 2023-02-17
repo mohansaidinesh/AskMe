@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<table>
+    <thead>
+    <th> AskMate Question:</th>
+
+    </thead>
+</table>
+<br><br>
+<table>
+    <tr>
+        <td>  {{ question[0]['title'] }}</td>
+    </tr>
+    <tr>
+        <td> Q: {{ question[0]['message'] }}</td>
+    </tr>
+</table>
+<br><br>
+
+<table>
+    {% if answers == [] %}
+        <tr>
+            <td>
+                No answer posted yet
+            </td>
+        </tr>
+    {% else %}
+        {% for answer in answers %}
+            <tr>
+                <td>
+                    <strong> Answer: {{ loop.index }} </strong><br>{{ answer['message'] }}
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+    <br>
+    <h3>Options:</h3>
+    <a href="/question/{{ question[0]['id'] }}/edit page">Edit this question</a><br>
+
+    <a href="/question/{{ question[0]['id'] }}/new-answer">Post an Answer</a><br>
+
+    <a href="/question/{{ question[0]['id'] }}/delete endpoint">Delete this question</a><br>
+
+    <a href="/list">Back to Question list</a><br>
+
+
+{% endblock %}

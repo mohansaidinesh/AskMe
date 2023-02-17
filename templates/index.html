@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+
+
+
+{% block content %}
+
+    <p>{{ login_message }}</p>
+
+
+    <p> {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    </p>
+    <form action="/search" method="GET">
+        <br><br>Search for question:<br>
+        <input type="text" name="q"></input><br>
+        <button type="submit">Search!</button>
+    </form>
+{% endblock %}
